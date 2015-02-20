@@ -138,6 +138,7 @@ $DB::single=1;
         my $exons = $trans->get_all_Exons();
 
         foreach my $sample_exon ( @{$exons}){
+            say '- sample_exon id: ' . $sample_exon->display_id;
             my $trans_exon = $sample_exon->transform('chromosome');
             if (my $new_left = is_left_overlap( $trans_exon, $ov))
              {
