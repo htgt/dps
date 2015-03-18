@@ -83,9 +83,9 @@ $registry->load_registry_from_db(
         -user => $ENV{LIMS2_ENSEMBL_USER} || 'anonymous'
     );
 
-my $exon_adaptor = $registry->get_adaptor('Mouse', 'Core', 'Exon');
+my $exon_adaptor = $registry->get_adaptor($species, 'Core', 'Exon');
 
-my $slice_adaptor = $registry->get_adaptor('Mouse', 'Core', 'Slice');
+my $slice_adaptor = $registry->get_adaptor($species, 'Core', 'Slice');
 
 my @out_array;
 push @out_array,
