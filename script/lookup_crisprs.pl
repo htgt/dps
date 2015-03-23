@@ -8,7 +8,6 @@ use Text::CSV;
 use IO::Handle;
 use IO::File;
 use WGE::Util::FindPairs;
-#use Const::Fast;
 use Log::Log4perl ':easy';
 use feature qw( say );
 use YAML::Any;
@@ -24,9 +23,9 @@ my @region_groups_param;
 my $output_param;
 
 GetOptions(
-    'file=s'          => \$csv_file_param,
-    'species=s'       => \$species_param,
-    'crispr_type=s'   => \$crispr_type_param,
+    'file=s'            => \$csv_file_param,
+    'species=s'         => \$species_param,
+    'crispr_type=s'     => \$crispr_type_param,
     'region_groups=s'   => \@region_groups_param,
     'output=s'          => \$output_param,
 )
@@ -38,7 +37,7 @@ Usage: lookup_crisprs.pl <loci_file.csv>
     --file=< locus_file.csv >
     --species=[ human | mouse ]
     --crispr_type=[ single | pair ]
-    --region_groups=[ pre | post | loxp | cassette ...]
+    --region_groups=[ pre | post | exon | loxp | cassette ...]
     --output=<filename_root crispr_type and .csv will be added to this>
 END_USAGE
 }
