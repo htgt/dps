@@ -1,3 +1,5 @@
+#! /usr/bin/perl
+
 use Text::CSV;
 use Bio::EnsEMBL::Registry;
 use feature qw/ say /;
@@ -113,6 +115,7 @@ sub generate_output_csv {
     open my $out_fh, ">:encoding(utf8)", $output_file_param or die $output_file_param . ": $!";
     $csv->print ($out_fh, $_) for @{$out_ref};
     close $out_fh or die $output_file_param . ": $!";
+    return;
 }
 
 sub do_main_flow {
