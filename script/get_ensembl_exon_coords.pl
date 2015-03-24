@@ -142,8 +142,9 @@ sub do_main_flow {
     push @out_array,
     [   'Gene Id',
         'Exon Id',
-        'chr_start',
-        'chr_end',
+        'exon_chr_name',
+        'exon_chr_start',
+        'exon_chr_end',
         'pre_chr_name',
         'pre_chr_start',
         'pre_chr_end',
@@ -183,6 +184,7 @@ sub generate_coords {
 
         $ov->{gene_id} = $gene_id;
         $ov->{exon_id} = $exon_id;
+        $ov->{exon_chr_name} = $exon->slice->seq_region_name();
         $ov->{pre_chr_name} = $exon->slice->seq_region_name();
         $ov->{exon_chr_start} = $exon->start;
         $ov->{pre_chr_start} = $exon->start - ($pre_region_param + 1); # starts at 1 not zero
@@ -210,6 +212,7 @@ sub generate_coords {
         push @out_array, [
             $ov->{gene_id},
             $ov->{exon_id},
+            $ov->{exon_chr_name},
             $ov->{exon_chr_start},
             $ov->{exon_chr_end},
             $ov->{pre_chr_name},
